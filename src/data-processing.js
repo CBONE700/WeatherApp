@@ -9,11 +9,14 @@ async function processData(jsonData) {
         Math.round(
           (((Number(jsonData.currentConditions.temp) - 32) * 5) / 9) * 10
         ) / 10,
-      feelsLike: jsonData.currentConditions.feelslike,
+      feelsLikeF: jsonData.currentConditions.feelslike,
+      feelsLikeC:
+        Math.round(
+          (((Number(jsonData.currentConditions.feelslike) - 32) * 5) / 9) * 10
+        ) / 10,
       wind: jsonData.currentConditions.windspeed,
       humidity: jsonData.currentConditions.humidity,
     };
-    weatherObject.location[0].toUpperCase();
     return weatherObject;
   } catch (e) {}
 }
